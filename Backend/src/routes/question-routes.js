@@ -42,7 +42,7 @@ QuestionRoutes.post('/submit/:id', ErrorProtectedRoute( async (req, resp) => {
     try{        
         let test = await TestModel.findById(req.params.id)        
         test.questions = req.body.questions
-        test.duration = test.startTime - Date.now()
+        test.endTime = Date.now()
         let updatedTest = await test.save()
         if(updatedTest !== undefined)
         {  
@@ -54,10 +54,37 @@ QuestionRoutes.post('/submit/:id', ErrorProtectedRoute( async (req, resp) => {
         throw new ApiError("unknown-error", err.message, 400)
     }
 }))
+QuestionRoutes.get('/all', ErrorProtectedRoute(async (req, resp) => {
+    try{        
+        let tests = await TestModel.find({})
+        if(tests !== undefined)
+        {  
+            resp.status(200).send(new ResponseData(tests).toJSON())
+        }
+    }
+    catch(err){
+        console.log(err)
+        throw new ApiError("unknown-error", err.message, 400)
+    }
+}))
 
 QuestionRoutes.get('/:id', ErrorProtectedRoute( async (req, resp) => {
     try{        
         let test = await TestModel.findById(req.params.id)                
+        if(test !== undefined)
+        {  
+            resp.status(200).send(new ResponseData(test).toJSON())
+        }
+    }
+    catch(err){
+        console.log(err)
+        throw new ApiError("unknown-error", err.message, 400)
+    }
+}))
+
+QuestionRoutes.delete('/delete/all', ErrorProtectedRoute( async (req, resp) => {
+    try{
+        let test = await TestModel.deleteMany({})
         if(test !== undefined)
         {  
             resp.status(200).send(new ResponseData(test).toJSON())

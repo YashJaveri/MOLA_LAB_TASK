@@ -27,7 +27,7 @@ export const TestSchema = new Schema({
     },
   ],
   startTime: { type: Date, default: Date.now() },
-  duration: { type: Date, default: Date.now(), require: [true, "Duration is required"] },
+  endTime: { type: Date, default: Date.now(), require: [true, "Duration is required"] },
 });
 
 export const TestModel = model("test", TestSchema);

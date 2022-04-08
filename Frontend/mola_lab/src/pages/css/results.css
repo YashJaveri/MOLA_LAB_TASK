@@ -1,0 +1,21 @@
+.download-btn{
+    width: 12%;
+    font-size: 20px;
+    margin-bottom: 0.1rem;
+    color: white;
+    background-color: #234668;
+    border-radius: 4px;
+    text-align: center;
+    padding: 3px;    
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #234668;
+    cursor: pointer;
+}
+
+.download-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
