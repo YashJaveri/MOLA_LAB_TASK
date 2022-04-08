@@ -19,3 +19,11 @@
     justify-content: flex-end;
     align-items: flex-end;
 }
+
+@media screen and (max-width: 760px) {
+    .download-btn{
+        width: 40%;
+        font-size: 0.9rem;
+        margin-bottom: 1.1rem;
+    }
+}

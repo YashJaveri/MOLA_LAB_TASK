@@ -1,7 +1,7 @@
 
   .mbody {
-    padding: 10px;
-    padding-left: 30px;
+    padding: 1rem;
+    padding-left: 2rem;
     background-color: white;
     justify-content: center;
     align-items: center;
@@ -11,6 +11,12 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media screen and (max-width: 480px){
+    .mbody{
+      padding-left: 0.2rem;
+    }
   }
 
   
@@ -79,6 +85,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  @media screen and (max-width: 480px){
+    .answer-section {
+      margin-left: 1.2rem;
+    }
   }
 
   .round-button{
@@ -221,6 +233,12 @@
     justify-content: center;
     align-items: center;
     margin: 1rem;
+  }
+
+  @media screen and (max-width: 480px){
+    .intro{
+      padding-left: 2.2rem;
+    }
   }
 
   .intro-text{
