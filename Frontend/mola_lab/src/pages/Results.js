@@ -10,16 +10,11 @@ function Results() {
 
   useEffect(() => {
     fetchData()    
-  }, [])
+  })
 
   const fetchData = async () => {
     let d = await axios.get("http://localhost:8000/questions/all")
     setData(d.data.data)
-  }
-
-  const downloadCSV = async (id) => {
-    let d = await axios.get("http://localhost:8000/questions/" + id)
-    let data = d.data.data
   }
   
   const getData = data.map((d, index) => {
@@ -37,13 +32,13 @@ function Results() {
         <Card.Body>
           <Card.Title>{"Survey " + (index+1)}</Card.Title>
           <Card.Text>
-            {"Duration: " + (endDate.getMinutes() - startDate.getMinutes()) + " mins"}
+            {"Duration: " + ((endDate.getSeconds() - startDate.getSeconds())/60).toFixed(2) + " mins"}
           </Card.Text>
           <div className="download-container">
             <div className="download-btn">
               <CSVLink data={survey} style={{color:'white', textDecoration:'none'}}>
                 Download Report
-              </CSVLink>              
+              </CSVLink>       
             </div>
           </div>
         </Card.Body>

@@ -33,7 +33,9 @@ QuestionRoutes.post('/', ErrorProtectedRoute( async (req, resp) => {
     }
     const test = await TestModel.create({
         name: "YQuiz " + Date.now(),
-        questions: questions
+        questions: questions,
+        startTime: Date.now(),
+        endTime: Date.now()
     })
     resp.status(200).send(new ResponseData(test))
 }))
@@ -43,6 +45,7 @@ QuestionRoutes.post('/submit/:id', ErrorProtectedRoute( async (req, resp) => {
         let test = await TestModel.findById(req.params.id)        
         test.questions = req.body.questions
         test.endTime = Date.now()
+        console.log('End time: ' + test.endTime)
         let updatedTest = await test.save()
         if(updatedTest !== undefined)
         {  
