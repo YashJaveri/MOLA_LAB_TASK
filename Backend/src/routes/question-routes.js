@@ -23,7 +23,7 @@ QuestionRoutes.post('/', ErrorProtectedRoute( async (req, resp) => {
 
     var questions = []
     for(let i=0;i<randomArr.length;i++){        
-        let opt = ["Strongly Disagree", "Slightly Disagree", "Disagree", "Neutral", "Slightly Agree", "Agree", "Strongly Agree"]
+        let opt = [worksheet[`E${randomArr[i]}`].v, worksheet[`F${randomArr[i]}`].v, worksheet[`G${randomArr[i]}`].v, worksheet[`H${randomArr[i]}`].v, worksheet[`I${randomArr[i]}`].v, worksheet[`J${randomArr[i]}`].v, worksheet[`K${randomArr[i]}`].v]        
         let x = {
             question: worksheet[`B${randomArr[i]}`].v,
             options: opt,

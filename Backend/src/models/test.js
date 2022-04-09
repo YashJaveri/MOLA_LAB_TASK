@@ -15,13 +15,13 @@ export const TestSchema = new Schema({
           {
             type: String,
             require: [true, "Option is required"],
-            enum: ["Strongly Disagree", "Slightly Disagree", "Disagree", "Neutral", "Slightly Agree", "Agree", "Strongly Agree"],
+            enum: ["Strongly Disagree", "Slightly Disagree", "Disagree", "Netural", "Neutral", "Slightly Agree", "Agree", "Strongly Agree"],
           },
         ],
         answer: {
           type: String,
           require: [true, "Answer is required"],
-          enum: [ "", "Strongly Disagree", "Slightly Disagree", "Disagree", "Neutral", "Slightly Agree", "Agree", "Strongly Agree"],
+          enum: [ "", "Strongly Disagree", "Slightly Disagree", "Disagree", "Netural", "Neutral", "Slightly Agree", "Agree", "Strongly Agree"],
         },
       },
     },
